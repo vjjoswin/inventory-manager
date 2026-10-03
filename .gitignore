@@ -4,3 +4,4 @@ _site/
 __pycache__/
 *.pyc
 product-inventory-manager.zip
+/.gh-session/
