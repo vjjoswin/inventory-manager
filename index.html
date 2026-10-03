@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Inventory Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Product Inventory Manager</h1>
+      <p>Manage your products easily</p>
+    </header>
+
+    <main>
+      <section class="form-section" aria-labelledby="addHeading">
+        <h2 id="addHeading">Add Product</h2>
+        <form id="productForm">
+
+        <label for="productName">Product name</label>
+        <input type="text" id="productName" placeholder="e.g. USB-C cable" required />
+        <label for="productPrice">Price (₹)</label>
+        <input type="number" id="productPrice" placeholder="0.00" min="0" step="0.01" required />
+
+        <label class="stock-row">
+          <input type="checkbox" id="productStock" checked />
+          <span>In Stock</span>
+        </label>
+
+        <label for="productTags">Tags (optional, comma separated)</label>
+        <input type="text" id="productTags" placeholder="Accessories, Cables" />
+        <button type="submit">Add Product</button>
+        <p id="formStatus" role="status"></p>
+        </form>
+      </section>
+
+      <section aria-labelledby="inventoryHeading">
+        <h2 id="inventoryHeading">Inventory</h2>
+        <div class="inventory-controls">
+          <label class="stock-row">
+            <input type="checkbox" id="availableOnly" />
+            <span>Show only in-stock products</span>
+          </label>
+          <label class="stock-row">
+            <input type="checkbox" id="discountEnabled" />
+            <span>Preview discount</span>
+          </label>
+          <div class="discount-field">
+            <label for="discountPercent">Discount (%)</label>
+            <input type="number" id="discountPercent" value="10" min="0" max="100" step="0.1" required aria-describedby="discountError" />
+          </div>
+          <p id="discountError" role="status"></p>
+        </div>
+        <p id="inventorySummary" role="status"></p>
+        <div id="productList"></div>
+        <p class="hint">Discounts are a preview of original prices. Products added here remain until you refresh.</p>
+      </section>
+    </main>
+
+    <script type="module" src="dist/app.js"></script>
+  </body>
+</html>
